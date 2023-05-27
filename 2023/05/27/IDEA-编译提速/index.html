@@ -16,16 +16,16 @@
   <meta name="author" content="Sadak">
   <meta name="keywords" content="">
   
-    <meta name="description" content="今天用别人电脑IDEA编译Java项目的时候发觉速度快我很多,我的总是卡在  正在解析java  我寻思我这游戏本不至于干不过轻薄本,遂上网寻找优化方法 最开始以为内存没给够,结果最后发现是编译器的锅,跟IDEA没关系  把编译器换成eclipse速度就飞起来了 这何尝不是一种NTR">
+    <meta name="description" content="今天用别人电脑IDEA编译Java项目的时候发觉速度快我很多,我的总是卡在  正在解析java  我寻思我这游戏本不至于干不过轻薄本,遂上网寻找优化方法 最开始以为内存没给够,结果最后发现是编译器的锅,跟IDEA没关系  把编译器换成eclipse速度就飞起来了 这何尝不是一种NTR  第二天加更 进一步了解,发现问题是这样的,IDEA默认使用javac进行编译,而我开发项目使用的是jdk8,其附">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IDEA 编译提速">
 <meta property="og:url" content="http://example.com/2023/05/27/IDEA-%E7%BC%96%E8%AF%91%E6%8F%90%E9%80%9F/index.html">
 <meta property="og:site_name" content="Sadak的小站">
-<meta property="og:description" content="今天用别人电脑IDEA编译Java项目的时候发觉速度快我很多,我的总是卡在  正在解析java  我寻思我这游戏本不至于干不过轻薄本,遂上网寻找优化方法 最开始以为内存没给够,结果最后发现是编译器的锅,跟IDEA没关系  把编译器换成eclipse速度就飞起来了 这何尝不是一种NTR">
+<meta property="og:description" content="今天用别人电脑IDEA编译Java项目的时候发觉速度快我很多,我的总是卡在  正在解析java  我寻思我这游戏本不至于干不过轻薄本,遂上网寻找优化方法 最开始以为内存没给够,结果最后发现是编译器的锅,跟IDEA没关系  把编译器换成eclipse速度就飞起来了 这何尝不是一种NTR  第二天加更 进一步了解,发现问题是这样的,IDEA默认使用javac进行编译,而我开发项目使用的是jdk8,其附">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/2023/05/27/IDEA-%E7%BC%96%E8%AF%91%E6%8F%90%E9%80%9F/1.bmp">
 <meta property="article:published_time" content="2023-05-26T16:24:37.000Z">
-<meta property="article:modified_time" content="2023-05-26T16:34:17.193Z">
+<meta property="article:modified_time" content="2023-05-27T02:29:22.614Z">
 <meta property="article:author" content="Sadak">
 <meta property="article:tag" content="IDEA">
 <meta name="twitter:card" content="summary_large_image">
@@ -249,7 +249,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          134 字
+          343 字
         
       </span>
     
@@ -261,7 +261,7 @@
         
         
           <!-- compatible with older versions-->
-          2 分钟
+          3 分钟
         
       </span>
     
@@ -321,6 +321,14 @@
 <p><img src="/2023/05/27/IDEA-%E7%BC%96%E8%AF%91%E6%8F%90%E9%80%9F/1.bmp" srcset="/img/loading.gif" lazyload alt="设置如上图"></p>
 <p>把编译器换成<code>eclipse</code>速度就飞起来了</p>
 <p><s>这何尝不是一种NTR</s></p>
+<hr>
+<h2 id="第二天加更">第二天加更</h2>
+<p>进一步了解,发现问题是这样的,IDEA默认使用<code>javac</code>进行编译,而我开发项目使用的是<code>jdk8</code>,其附带的<code>javac</code>不支持增量编译和多线程编译,而正好<code>EJC</code>支持上述功能,因此在更换编译器后速度有了明显的提升.</p>
+<p>若不想<s>ntr</s>使用<code>EJC</code>,则需要将项目的jdk版本调整到<code>jdk8</code>以上的版本,此后的版本中<code>javac</code>支持多线程,编译速度飞起</p>
+<p><a target="_blank" rel="noopener" href="https://korov.github.io/posts/ECJ-vs-javac/">相关链接</a></p>
+<blockquote>
+<p>话说这位好像也是挂着github的服务器在写博客?<a target="_blank" rel="noopener" href="http://xn--github-v50ks00hoj1c.io">网址是github.io</a></p>
+</blockquote>
 
                 
               </div>
